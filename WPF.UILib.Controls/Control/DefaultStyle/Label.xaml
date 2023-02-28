@@ -1,0 +1,14 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Color="clr-namespace:WPF.UILib.ColorSchemes;assembly=WPF.UILib">
+
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/WPF.UILib.Controls;component/Control/Base/ControlBase.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style BasedOn="{StaticResource Label.Base}" TargetType="{x:Type Label}">
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static Color:ColorsKey.DefalutForegroundBrush}}" />
+    </Style>
+</ResourceDictionary>

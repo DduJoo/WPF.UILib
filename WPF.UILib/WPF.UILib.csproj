@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Font\NotoSansKR-Black.otf" />
+    <None Remove="Font\NotoSansKR-Bold.otf" />
+    <None Remove="Font\NotoSansKR-Light.otf" />
+    <None Remove="Font\NotoSansKR-Medium.otf" />
+    <None Remove="Font\NotoSansKR-Regular.otf" />
+    <None Remove="Font\NotoSansKR-Thin.otf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Font\NotoSansKR-Black.otf" />
+    <Resource Include="Font\NotoSansKR-Bold.otf" />
+    <Resource Include="Font\NotoSansKR-Light.otf" />
+    <Resource Include="Font\NotoSansKR-Medium.otf" />
+    <Resource Include="Font\NotoSansKR-Regular.otf" />
+    <Resource Include="Font\NotoSansKR-Thin.otf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,489 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Color="clr-namespace:WPF.UILib.ColorSchemes;assembly=WPF.UILib"
+    xmlns:Dimension="clr-namespace:WPF.UILib.Dimensions;assembly=WPF.UILib"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/WPF.UILib.Controls;component/Control/NamedStyle/EmptinessedButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/WPF.UILib.Controls;component/Control/NamedStyle/FilledButton.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+
+    <!--  윈도우 메인 스타일  -->
+    <Style x:Key="Window.Base" TargetType="{x:Type Window}">
+        <Setter Property="WindowStyle" Value="None" />
+        <Setter Property="WindowState" Value="Normal" />
+        <Setter Property="Background" Value="{DynamicResource {x:Static Color:ColorsKey.DefalutBackgroundBrush}}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource {x:Static Dimension:Dimensions.BorderThickness}}" />
+        <Setter Property="WindowChrome.WindowChrome">
+            <Setter.Value>
+                <WindowChrome
+                    CaptionHeight="0"
+                    CornerRadius="0"
+                    GlassFrameThickness="1, 5, 1, 1"
+                    NonClientFrameEdges="None"
+                    ResizeBorderThickness="{Binding Source={x:Static SystemParameters.WindowResizeBorderThickness}}" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Window}">
+                    <Grid Margin="16" Background="{DynamicResource {x:Static Color:ColorsKey.DefalutBackgroundBrush}}">
+                        <Border BorderBrush="{DynamicResource {x:Static Color:ColorsKey.DefalutControlBorderBrush}}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="36" />
+                                    <RowDefinition Height="1" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <!--  topBar (윈도우 이름 및 윈도우 버튼)  -->
+                                <Grid Grid.Row="0">
+                                    <Grid.Background>
+                                        <LinearGradientBrush StartPoint="0 0" EndPoint="0 1">
+                                            <GradientStop Offset="0.0" Color="{DynamicResource {x:Static Color:ColorsKey.WindowTopBarBackgroundOf1Color}}" />
+                                            <GradientStop Offset="1.0" Color="{DynamicResource {x:Static Color:ColorsKey.WindowTopBarBackgroundOf2Color}}" />
+                                        </LinearGradientBrush>
+                                    </Grid.Background>
+
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="38" />
+                                        <ColumnDefinition Width="4" />
+                                        <ColumnDefinition Width="38" />
+                                        <ColumnDefinition Width="4" />
+                                        <ColumnDefinition Width="38" />
+                                        <ColumnDefinition Width="6" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label
+                                        Grid.Column="0"
+                                        Padding="20,0,0,0"
+                                        HorizontalContentAlignment="Left"
+                                        VerticalContentAlignment="Center"
+                                        Content="{Binding ElementName=View, Path=Title}"
+                                        Foreground="{DynamicResource {x:Static Color:ColorsKey.DefalutForegroundBrush}}">
+                                        <Label.Style>
+                                            <Style TargetType="{x:Type Label}">
+                                                <Setter Property="FontSize" Value="13" />
+                                                <Setter Property="FontFamily" Value="{DynamicResource NotoSans Bold}" />
+                                            </Style>
+                                        </Label.Style>
+                                    </Label>
+
+
+                                    <!--  최소화 버튼  -->
+                                    <Grid Grid.Column="2" Cursor="Hand">
+                                        <Grid Width="38" Height="30">
+                                            <Grid.Style>
+                                                <Style TargetType="{x:Type Grid}">
+                                                    <Setter Property="Background">
+                                                        <Setter.Value>
+                                                            <ImageBrush ImageSource="{DynamicResource {x:Static Color:ColorsKey.WindowMinBackgroundImage}}" />
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </Grid.Style>
+                                        </Grid>
+                                        <Grid.Style>
+                                            <Style TargetType="{x:Type Grid}">
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Background" Value="{DynamicResource {x:Static Color:ColorsKey.WindowButtonOverBackgroundBrush}}" />
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Grid.Style>
+
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                <i:InvokeCommandAction Command="{Binding MinimizeCommand}" />
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </Grid>
+
+                                    <!--  최대화/일반 버튼  -->
+                                    <Grid Grid.Column="4" Cursor="Hand">
+                                        <Grid Width="38" Height="30">
+                                            <Grid.Style>
+                                                <Style TargetType="{x:Type Grid}">
+                                                    <Setter Property="Background">
+                                                        <Setter.Value>
+                                                            <ImageBrush ImageSource="{DynamicResource {x:Static Color:ColorsKey.WindowMaxBackgroundImage}}" />
+                                                        </Setter.Value>
+                                                    </Setter>
+
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding WindowState, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" Value="Normal">
+                                                            <Setter Property="Background">
+                                                                <Setter.Value>
+                                                                    <ImageBrush ImageSource="{DynamicResource {x:Static Color:ColorsKey.WindowMaxBackgroundImage}}" />
+                                                                </Setter.Value>
+                                                            </Setter>
+                                                        </DataTrigger>
+
+
+                                                        <DataTrigger Binding="{Binding WindowState, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" Value="Maximized">
+                                                            <Setter Property="Background">
+                                                                <Setter.Value>
+                                                                    <ImageBrush ImageSource="{DynamicResource {x:Static Color:ColorsKey.WindowOrgBackgroundImage}}" />
+                                                                </Setter.Value>
+                                                            </Setter>
+                                                        </DataTrigger>
+
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Grid.Style>
+                                        </Grid>
+
+
+
+                                        <Grid.Style>
+                                            <Style TargetType="{x:Type Grid}">
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Background" Value="{DynamicResource {x:Static Color:ColorsKey.WindowButtonOverBackgroundBrush}}" />
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Grid.Style>
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                <i:InvokeCommandAction Command="{Binding MaxNormalizeCommand}" />
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+
+                                    </Grid>
+
+
+
+                                    <!--  닫기 버튼  -->
+                                    <Grid Grid.Column="6" Cursor="Hand">
+                                        <Grid Width="38" Height="30">
+                                            <Grid.Style>
+                                                <Style TargetType="{x:Type Grid}">
+                                                    <Setter Property="Background">
+                                                        <Setter.Value>
+                                                            <ImageBrush ImageSource="{DynamicResource {x:Static Color:ColorsKey.WindowCloseBackgroundImage}}" />
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </Grid.Style>
+                                        </Grid>
+                                        <Grid.Style>
+                                            <Style TargetType="{x:Type Grid}">
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Background" Value="{DynamicResource {x:Static Color:ColorsKey.WindowButtonOverBackgroundBrush}}" />
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Grid.Style>
+
+
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                <i:InvokeCommandAction Command="{Binding CloseCommand}" />
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </Grid>
+
+
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                                            <i:InvokeCommandAction Command="{Binding DragMoveCommand}" />
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Grid>
+
+
+                                <Grid Grid.Row="1" />
+
+                                <Grid
+                                    Grid.Row="2"
+                                    Margin="16"
+                                    Background="{DynamicResource {x:Static Color:ColorsKey.ContentsAreaBrush}}">
+                                    <ContentPresenter Grid.Row="2" />
+                                </Grid>
+
+
+                            </Grid>
+                        </Border>
+
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Loaded">
+                                <i:InvokeCommandAction Command="{Binding LoadedEvent}" CommandParameter="{Binding ElementName=View}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+
+
+
+
+    <!--  하단 버튼 팝업 스타일  -->
+    <Style x:Key="Window.Popup.TwoButton" TargetType="{x:Type Window}">
+        <Setter Property="WindowStyle" Value="None" />
+        <Setter Property="WindowState" Value="Normal" />
+        <Setter Property="Background" Value="{DynamicResource {x:Static Color:ColorsKey.DefalutBackgroundBrush}}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource {x:Static Dimension:Dimensions.BorderThickness}}" />
+        <Setter Property="WindowChrome.WindowChrome">
+            <Setter.Value>
+                <WindowChrome
+                    CaptionHeight="0"
+                    CornerRadius="0"
+                    GlassFrameThickness="1, 5, 1, 1"
+                    NonClientFrameEdges="None"
+                    ResizeBorderThickness="{Binding Source={x:Static SystemParameters.WindowResizeBorderThickness}}" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Window}">
+                    <Grid Margin="16" Background="{DynamicResource {x:Static Color:ColorsKey.DefalutBackgroundBrush}}">
+                        <Border BorderBrush="{DynamicResource {x:Static Color:ColorsKey.DefalutControlBorderBrush}}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="36" />
+                                    <RowDefinition Height="1" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="64" />
+                                </Grid.RowDefinitions>
+
+                                <!--  topBar (윈도우 이름 및 윈도우 버튼)  -->
+                                <Grid Grid.Row="0">
+                                    <Grid.Background>
+                                        <LinearGradientBrush StartPoint="0 0" EndPoint="0 1">
+                                            <GradientStop Offset="0.0" Color="{DynamicResource {x:Static Color:ColorsKey.WindowTopBarBackgroundOf1Color}}" />
+                                            <GradientStop Offset="1.0" Color="{DynamicResource {x:Static Color:ColorsKey.WindowTopBarBackgroundOf2Color}}" />
+                                        </LinearGradientBrush>
+                                    </Grid.Background>
+
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="38" />
+                                        <ColumnDefinition Width="4" />
+                                        <ColumnDefinition Width="38" />
+                                        <ColumnDefinition Width="4" />
+                                        <ColumnDefinition Width="38" />
+                                        <ColumnDefinition Width="6" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label
+                                        Grid.Column="0"
+                                        Padding="20,0,0,0"
+                                        HorizontalContentAlignment="Left"
+                                        VerticalContentAlignment="Center"
+                                        Content="{Binding ElementName=View, Path=Title}"
+                                        Foreground="{DynamicResource {x:Static Color:ColorsKey.DefalutForegroundBrush}}">
+                                        <Label.Style>
+                                            <Style TargetType="{x:Type Label}">
+                                                <Setter Property="FontSize" Value="13" />
+                                                <Setter Property="FontFamily" Value="{DynamicResource NotoSans Bold}" />
+                                            </Style>
+                                        </Label.Style>
+                                    </Label>
+
+
+                                    <!--  최소화 버튼  -->
+                                    <Grid Grid.Column="2" Cursor="Hand">
+                                        <Grid Width="38" Height="30">
+                                            <Grid.Style>
+                                                <Style TargetType="{x:Type Grid}">
+                                                    <Setter Property="Background">
+                                                        <Setter.Value>
+                                                            <ImageBrush ImageSource="{DynamicResource {x:Static Color:ColorsKey.WindowMinBackgroundImage}}" />
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </Grid.Style>
+                                        </Grid>
+                                        <Grid.Style>
+                                            <Style TargetType="{x:Type Grid}">
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Background" Value="{DynamicResource {x:Static Color:ColorsKey.WindowButtonOverBackgroundBrush}}" />
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Grid.Style>
+
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                <i:InvokeCommandAction Command="{Binding MinimizeCommand}" />
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </Grid>
+
+                                    <!--  최대화/일반 버튼  -->
+                                    <Grid Grid.Column="4" Cursor="Hand">
+                                        <Grid Width="38" Height="30">
+                                            <Grid.Style>
+                                                <Style TargetType="{x:Type Grid}">
+                                                    <Setter Property="Background">
+                                                        <Setter.Value>
+                                                            <ImageBrush ImageSource="{DynamicResource {x:Static Color:ColorsKey.WindowMaxBackgroundImage}}" />
+                                                        </Setter.Value>
+                                                    </Setter>
+
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding WindowState, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" Value="Normal">
+                                                            <Setter Property="Background">
+                                                                <Setter.Value>
+                                                                    <ImageBrush ImageSource="{DynamicResource {x:Static Color:ColorsKey.WindowMaxBackgroundImage}}" />
+                                                                </Setter.Value>
+                                                            </Setter>
+                                                        </DataTrigger>
+
+
+                                                        <DataTrigger Binding="{Binding WindowState, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" Value="Maximized">
+                                                            <Setter Property="Background">
+                                                                <Setter.Value>
+                                                                    <ImageBrush ImageSource="{DynamicResource {x:Static Color:ColorsKey.WindowOrgBackgroundImage}}" />
+                                                                </Setter.Value>
+                                                            </Setter>
+                                                        </DataTrigger>
+
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Grid.Style>
+                                        </Grid>
+
+
+
+                                        <Grid.Style>
+                                            <Style TargetType="{x:Type Grid}">
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Background" Value="{DynamicResource {x:Static Color:ColorsKey.WindowButtonOverBackgroundBrush}}" />
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Grid.Style>
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                <i:InvokeCommandAction Command="{Binding MaxNormalizeCommand}" />
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+
+                                    </Grid>
+
+
+
+                                    <!--  닫기 버튼  -->
+                                    <Grid Grid.Column="6" Cursor="Hand">
+                                        <Grid Width="38" Height="30">
+                                            <Grid.Style>
+                                                <Style TargetType="{x:Type Grid}">
+                                                    <Setter Property="Background">
+                                                        <Setter.Value>
+                                                            <ImageBrush ImageSource="{DynamicResource {x:Static Color:ColorsKey.WindowCloseBackgroundImage}}" />
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </Grid.Style>
+                                        </Grid>
+                                        <Grid.Style>
+                                            <Style TargetType="{x:Type Grid}">
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Background" Value="{DynamicResource {x:Static Color:ColorsKey.WindowButtonOverBackgroundBrush}}" />
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Grid.Style>
+
+
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                <i:InvokeCommandAction Command="{Binding CloseCommand}" />
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </Grid>
+
+
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                                            <i:InvokeCommandAction Command="{Binding DragMoveCommand}" />
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Grid>
+
+                                <!--  구분선  -->
+                                <Grid Grid.Row="1" />
+
+                                <!--  content 영역  -->
+                                <Grid
+                                    Grid.Row="2"
+                                    Margin="16"
+                                    Background="{DynamicResource {x:Static Color:ColorsKey.ContentsAreaBrush}}">
+                                    <ContentPresenter Grid.Row="2" />
+                                </Grid>
+
+
+                                <!--  하단 버튼 영역  -->
+                                <Grid Grid.Row="3" Background="{DynamicResource {x:Static Color:ColorsKey.BottomButtonAreaBrush}}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*" />
+                                        <ColumnDefinition Width="80" />
+                                        <ColumnDefinition Width="6" />
+                                        <ColumnDefinition Width="80" />
+                                        <ColumnDefinition Width="1*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Button
+                                        Grid.Column="1"
+                                        Width="80"
+                                        Height="32"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Command="{Binding CancelCommand}"
+                                        Content="취소"
+                                        Style="{StaticResource Button.Emptiness}" />
+
+                                    <Button
+                                        Grid.Column="3"
+                                        Width="80"
+                                        Height="32"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Command="{Binding ConfirmCommand}"
+                                        Content="확인"
+                                        Style="{StaticResource Button.Filled}" />
+
+                                </Grid>
+
+
+                            </Grid>
+                        </Border>
+
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Loaded">
+                                <i:InvokeCommandAction Command="{Binding LoadedEvent}" CommandParameter="{Binding ElementName=View}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+
+
+</ResourceDictionary>

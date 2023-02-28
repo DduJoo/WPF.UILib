@@ -1,0 +1,72 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\calendar_Dark.png" />
+    <None Remove="Resources\calendar_Disable.png" />
+    <None Remove="Resources\calendar_White.png" />
+    <None Remove="Resources\win_close_Black.png" />
+    <None Remove="Resources\win_close_White.png" />
+    <None Remove="Resources\win_max_Black.png" />
+    <None Remove="Resources\win_max_White.png" />
+    <None Remove="Resources\win_min_Black.png" />
+    <None Remove="Resources\win_min_White.png" />
+    <None Remove="Resources\win_org_Black.png" />
+    <None Remove="Resources\win_org_White.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WPF.UILib\WPF.UILib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\calendar_Dark.png" />
+    <Resource Include="Resources\calendar_Disable.png" />
+    <Resource Include="Resources\calendar_White.png" />
+    <Resource Include="Resources\win_close_Black.png" />
+    <Resource Include="Resources\win_close_White.png" />
+    <Resource Include="Resources\win_max_Black.png" />
+    <Resource Include="Resources\win_max_White.png" />
+    <Resource Include="Resources\win_min_Black.png" />
+    <Resource Include="Resources\win_min_White.png" />
+    <Resource Include="Resources\win_org_Black.png" />
+    <Resource Include="Resources\win_org_White.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>
