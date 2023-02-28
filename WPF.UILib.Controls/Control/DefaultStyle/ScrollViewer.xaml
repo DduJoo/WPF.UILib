@@ -20,7 +20,7 @@
                 <ControlTemplate TargetType="{x:Type ScrollViewer}">
 
                     <Border
-                        BorderBrush="Black"
+                        BorderBrush="{DynamicResource {x:Static Color:ColorsKey.DefalutControlBorderBrush}}"
                         BorderThickness="{DynamicResource {x:Static Dimension:Dimensions.BorderThickness}}"
                         CornerRadius="{DynamicResource {x:Static Dimension:Dimensions.CornerRadius}}">
 

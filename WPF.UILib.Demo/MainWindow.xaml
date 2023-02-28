@@ -209,6 +209,26 @@
             VerticalAlignment="Top"
             Content="스크롤 뷰어" />
 
+        <DataGrid
+            Width="548"
+            Height="218"
+            Margin="282,245,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            ItemsSource="{Binding DTable}"
+            SelectionMode="Extended" />
+
+        <Label
+            Width="111"
+            Height="24"
+            Margin="282,216,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="데이터 그리드" />
+
+
+
+
 
 
 

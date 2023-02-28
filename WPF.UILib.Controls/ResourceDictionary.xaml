@@ -13,6 +13,7 @@
         <ResourceDictionary Source="pack://application:,,,/WPF.UILib.Controls;component/Control/DefaultStyle/RadioButton.xaml" />
         <ResourceDictionary Source="pack://application:,,,/WPF.UILib.Controls;component/Control/DefaultStyle/ScrollBar.xaml" />
         <ResourceDictionary Source="pack://application:,,,/WPF.UILib.Controls;component/Control/DefaultStyle/ScrollViewer.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/WPF.UILib.Controls;component/Control/DefaultStyle/DataGrid.xaml" />
 
 
         <ResourceDictionary Source="pack://application:,,,/WPF.UILib.Controls;component/Control/NamedStyle/Window.xaml" />

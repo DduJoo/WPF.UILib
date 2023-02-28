@@ -31,11 +31,11 @@
     <Color x:Key="{x:Static Color:ColorsKey.DisableForegroundColor}">#a7a7a7</Color>
     <Color x:Key="{x:Static Color:ColorsKey.ContentsAreaColor}">#f0f2f7</Color>
     <Color x:Key="{x:Static Color:ColorsKey.BottomButtonAreaColor}">#f3f6fa</Color>
-    <Color x:Key="{x:Static Color:ColorsKey.HighlightColor}">#293958</Color>
+    <Color x:Key="{x:Static Color:ColorsKey.HighlightColor}">#e9f5ff</Color>
 
 
-    <Color x:Key="{x:Static Color:ColorsKey.WindowTopBarBackgroundOf1Color}">#ffffff</Color>
-    <Color x:Key="{x:Static Color:ColorsKey.WindowTopBarBackgroundOf2Color}">#f7f7f7</Color>
+    <Color x:Key="{x:Static Color:ColorsKey.WindowTopBarBackgroundOf1Color}">#f0f0f0</Color>
+    <Color x:Key="{x:Static Color:ColorsKey.WindowTopBarBackgroundOf2Color}">#ffffff</Color>
 
     <Color x:Key="{x:Static Color:ColorsKey.WindowButtonOverBackgroundColor}">#f0f0f0</Color>
 
