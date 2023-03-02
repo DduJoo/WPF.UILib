@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Input;
 
 namespace WPF.UILib.Controls.ViewModel
@@ -82,15 +83,20 @@ namespace WPF.UILib.Controls.ViewModel
         /// 화면 최대화 또는 보통 커맨드 함수
         /// </summary>
         private void MaxNormalize()
-        {
+        {            
             if (_this.WindowState == WindowState.Maximized)
             {
                 _this.WindowState = WindowState.Normal;                
             }
             else if (_this.WindowState == WindowState.Normal)
             {
-                _this.WindowState = WindowState.Maximized;                
-            }
+                _this.WindowState = WindowState.Maximized;
+
+                Screen screen = Screen.FromPoint(new System.Drawing.Point((int)_this.Left, (int)_this.Top));
+
+                _this.Left = screen.Bounds.Left;
+                _this.Top = screen.Bounds.Top;
+            }            
         }
 
 

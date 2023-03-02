@@ -1,0 +1,80 @@
+﻿<Window
+    x:Class="WPF.UILib.Controls.WIndow.LoadingWindow.LoadingView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Color="clr-namespace:WPF.UILib.ColorSchemes;assembly=WPF.UILib"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:local="clr-namespace:WPF.UILib.Controls.WIndow.LoadingWindow"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Name="View"
+    Title="LoadingView"
+    Width="400"
+    Height="400"
+    AllowsTransparency="True"
+    WindowStartupLocation="CenterOwner"
+    WindowStyle="None"
+    mc:Ignorable="d">
+
+    <Window.Resources>
+
+        <ResourceDictionary Source="pack://application:,,,/WPF.UILib.Controls;component/Template/Loading.xaml" />
+
+    </Window.Resources>
+
+    <Window.DataContext>
+        <local:LoadingViewModel />
+    </Window.DataContext>
+
+    <Window.Background>
+        <SolidColorBrush Opacity="0.5" Color="Silver" />
+    </Window.Background>
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedEvent}" CommandParameter="{Binding ElementName=View}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+
+    <Grid>
+        <Border
+            Width="200"
+            Height="100"
+            Background="{DynamicResource {x:Static Color:ColorsKey.ContentsAreaBrush}}"
+            BorderBrush="Black"
+            BorderThickness="0"
+            CornerRadius="4">
+            <Grid
+                Width="200"
+                Height="100"
+                Margin="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <TextBlock
+                    Grid.Row="1"
+                    Foreground="{DynamicResource {x:Static Color:ColorsKey.DefalutControlForegroundBrush}}"
+                    TextAlignment="Center">
+                    조회중입니다.<LineBreak />
+                    잠시만 기다려주세요.</TextBlock>
+
+                <Grid Grid.Row="2">
+                    <ContentControl
+                        Width="32"
+                        Height="24"
+                        ContentTemplate="{StaticResource Loading.Circle}"
+                        Focusable="False"
+                        Foreground="{DynamicResource {x:Static Color:ColorsKey.NormalBrush}}" />
+                </Grid>
+
+
+
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

@@ -20,6 +20,9 @@
         <ResourceDictionary Source="pack://application:,,,/WPF.UILib.Controls;component/Control/NamedStyle/EmptinessedButton.xaml" />
         <ResourceDictionary Source="pack://application:,,,/WPF.UILib.Controls;component/Control/NamedStyle/FilledButton.xaml" />
         <ResourceDictionary Source="pack://application:,,,/WPF.UILib.Controls;component/Control/NamedStyle/WaterMarkTextBox.xaml" />
+
+
+        <ResourceDictionary Source="pack://application:,,,/WPF.UILib.Controls;component/Template/Loading.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

@@ -1,17 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Configuration;
 using System.Data;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using WPF.UILib.Controls;
 using WPF.UILib.Controls.ViewModel;
+using WPF.UILib.Controls.WIndow.LoadingWindow;
 
 namespace WPF.UILib.Demo
 {
     public class MainWindowModel : WindowBase
-    {        
+    {
+
+        private ICommand? rowAddEvent = null;
+        public ICommand RowAddEvent { get => rowAddEvent ?? (rowAddEvent = new UserCommand(RowAdd)); }
+
         private ICommand? changedEvent = null;
         public ICommand ChangedEvent { get => changedEvent ?? (changedEvent = new UserCommand(Changed)); }
+
+        private ICommand? popUpOpenEvent = null;
+        public ICommand PopUpOpenEvent { get => popUpOpenEvent ?? (popUpOpenEvent = new UserCommand(PopUpOpen)); }
+
+        private ICommand? loadingOpenEvent = null;
+        public ICommand LoadingOpenEvent { get => loadingOpenEvent ?? (loadingOpenEvent = new UserCommand(LoadingOpen)); }
 
 
         private List<string> themesList = new List<string>();        
@@ -24,6 +39,12 @@ namespace WPF.UILib.Demo
         private DataTable dTable = new DataTable();
         public DataTable DTable { get => dTable; set => SetProperty(ref dTable, value); }
 
+
+        private ObservableCollection<string> list = new ObservableCollection<string>();
+        public ObservableCollection<string> Lis { get => list; set => SetProperty(ref list, value, "Lis"); }
+
+
+     
 
 
         public MainWindowModel()
@@ -56,6 +77,33 @@ namespace WPF.UILib.Demo
         private void Changed()
         {
             ResourceLocator.SetColorScheme(Application.Current.Resources, SelectedString);
+        }
+
+        private void PopUpOpen()
+        {
+            PopupView popupView = new PopupView();
+            popupView.ShowDialog();
+        }
+
+        private void RowAdd()
+        {
+            Lis.Add("aaa");
+        }
+
+        private void LoadingOpen()
+        {
+            ShowLoading();
+        }
+
+           
+        private async Task ShowLoading()
+        {
+            LoadingView loadingView = new LoadingView(base._this);
+            loadingView.Show();
+
+            await Task.Delay(3000);
+
+            loadingView.Close();
         }
     }
 }

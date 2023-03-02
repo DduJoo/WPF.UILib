@@ -43,6 +43,7 @@
             Margin="34,86,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
+            Command="{Binding PopUpOpenEvent}"
             Content="Button" />
         <Label
             Width="111"
@@ -50,20 +51,21 @@
             Margin="34,55,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Content="기본 버튼" />
+            Content="기본 버튼 - 팝업 열기" />
         <Label
-            Width="111"
+            Width="202"
             Height="24"
             Margin="34,140,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Content="빈색깔의 버튼" />
+            Content="빈색깔의 버튼 - 로딩창 열기 3초 유지" />
         <Button
             Width="124"
             Height="30"
             Margin="34,169,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
+            Command="{Binding LoadingOpenEvent}"
             Content="Button"
             Style="{StaticResource Button.Emptiness}" />
         <Label
@@ -189,14 +191,13 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Style="{StaticResource ScrollViewer.Default}">
-            <StackPanel>
-                <Label Width="100" Content="1" />
-                <Label Content="1" />
-                <Label Content="1" />
-                <Label Content="1" />
-
-
-            </StackPanel>
+            <ItemsControl BorderThickness="1" ItemsSource="{Binding Lis, UpdateSourceTrigger=PropertyChanged}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
         </ScrollViewer>
 
 
@@ -225,6 +226,62 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Content="데이터 그리드" />
+
+        <Button
+            Width="125"
+            Height="47"
+            Margin="736,152,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Command="{Binding RowAddEvent}"
+            Content="Button" />
+
+
+        <Grid
+            Width="46"
+            Height="39"
+            Margin="630,541,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top">
+            <ContentControl
+                Width="32"
+                Height="24"
+                ContentTemplate="{StaticResource Loading.Circle}"
+                Focusable="False"
+                Foreground="{DynamicResource {x:Static Color:ColorsKey.NormalBrush}}" />
+        </Grid>
+        <Grid
+            Width="46"
+            Height="39"
+            Margin="700,541,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top">
+            <ContentControl
+                Width="32"
+                Height="24"
+                ContentTemplate="{StaticResource Loading.Bars}"
+                Focusable="False" />
+        </Grid>
+
+        <Grid
+            Width="46"
+            Height="39"
+            Margin="770,541,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top">
+            <ContentControl
+                Width="32"
+                Height="24"
+                ContentTemplate="{StaticResource Loading.Dots}"
+                Focusable="False" />
+        </Grid>
+        <Label
+            Width="189"
+            Height="34"
+            Margin="653,510,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="로딩" />
 
 
 
