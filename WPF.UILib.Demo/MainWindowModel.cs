@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Input;
 using WPF.UILib.Controls;
 using WPF.UILib.Controls.ViewModel;
+using WPF.UILib.Controls.WIndow.AlertWindow;
 using WPF.UILib.Controls.WIndow.LoadingWindow;
 
 namespace WPF.UILib.Demo
@@ -27,6 +28,9 @@ namespace WPF.UILib.Demo
 
         private ICommand? loadingOpenEvent = null;
         public ICommand LoadingOpenEvent { get => loadingOpenEvent ?? (loadingOpenEvent = new UserCommand(LoadingOpen)); }
+
+        private ICommand? alertOpenEvent = null;
+        public ICommand AlertOpenEvent { get => alertOpenEvent ?? (alertOpenEvent = new UserCommand(AlertOpen)); }
 
 
         private List<string> themesList = new List<string>();        
@@ -104,6 +108,11 @@ namespace WPF.UILib.Demo
             await Task.Delay(3000);
 
             loadingView.Close();
+        }
+
+        private void AlertOpen()
+        {
+            AlertView.ShowMessage("Alert 메인 메시지", AlertViewModel.AlertType.QUESTION, "Alert 서브 메시지");
         }
     }
 }

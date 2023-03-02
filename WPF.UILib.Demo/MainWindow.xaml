@@ -69,18 +69,19 @@
             Content="Button"
             Style="{StaticResource Button.Emptiness}" />
         <Label
-            Width="111"
+            Width="167"
             Height="24"
             Margin="34,219,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Content="색깔 버튼" />
+            Content="색깔 버튼 - Alert창 띄우기" />
         <Button
             Width="124"
             Height="30"
             Margin="34,248,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
+            Command="{Binding AlertOpenEvent}"
             Content="Button"
             Style="{StaticResource Button.Filled}" />
         <Label
