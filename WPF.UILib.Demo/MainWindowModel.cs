@@ -44,8 +44,8 @@ namespace WPF.UILib.Demo
         public DataTable DTable { get => dTable; set => SetProperty(ref dTable, value); }
 
 
-        private ObservableCollection<string> list = new ObservableCollection<string>();
-        public ObservableCollection<string> Lis { get => list; set => SetProperty(ref list, value, "Lis"); }
+        private ObservableCollection<object> list = new ObservableCollection<object>();
+        public ObservableCollection<object> Lis { get => list; set => SetProperty(ref list, value, "Lis"); }
 
 
      
@@ -91,7 +91,8 @@ namespace WPF.UILib.Demo
 
         private void RowAdd()
         {
-            Lis.Add("aaa");
+            UserControl1 userControl1 = new UserControl1();
+            Lis.Add(userControl1);
         }
 
         private void LoadingOpen()

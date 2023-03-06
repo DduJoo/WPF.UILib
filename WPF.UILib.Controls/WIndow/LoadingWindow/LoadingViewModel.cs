@@ -15,14 +15,17 @@ namespace WPF.UILib.Controls.WIndow.LoadingWindow
         public override void Loaded(object sender)
         {
             base.Loaded(sender);
+            
 
             _this = base._this;
-
+            _this.Hide();
             _this.Height = _this.Owner.Height;
             _this.Width = _this.Owner.Width;
 
             _this.Left = _this.Owner.Left;
             _this.Top = _this.Owner.Top;
+            _this.Show();
+
         }
     }
 }

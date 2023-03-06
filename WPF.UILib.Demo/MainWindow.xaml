@@ -186,7 +186,7 @@
 
 
         <ScrollViewer
-            Width="88"
+            Width="auto"
             Height="99"
             Margin="282,86,0,0"
             HorizontalAlignment="Left"
@@ -283,16 +283,21 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Content="로딩" />
-
-
-
-
-
-
-
-
-
-
+        <Label
+            Width="112"
+            Height="24"
+            Margin="379,574,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="프로그래스바" />
+        <ProgressBar
+            Width="442"
+            Height="20"
+            Margin="388,606,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Maximum="100"
+            Value="50" />
 
 
     </Grid>

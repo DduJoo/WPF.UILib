@@ -12,7 +12,7 @@
     Width="400"
     Height="400"
     AllowsTransparency="True"
-    WindowStartupLocation="CenterOwner"
+    WindowStartupLocation="CenterScreen"
     WindowStyle="None"
     mc:Ignorable="d">
 
@@ -41,7 +41,7 @@
         <Border
             Width="200"
             Height="100"
-            Background="{DynamicResource {x:Static Color:ColorsKey.ContentsAreaBrush}}"
+            Background="{DynamicResource {x:Static Color:ColorsKey.DefalutBackgroundBrush}}"
             BorderBrush="Black"
             BorderThickness="0"
             CornerRadius="4">
