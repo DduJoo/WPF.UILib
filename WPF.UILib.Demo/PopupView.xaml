@@ -10,6 +10,7 @@
     Width="541"
     Height="450"
     Style="{DynamicResource Window.Popup.TwoButton}"
+    WindowStartupLocation="CenterOwner"
     mc:Ignorable="d">
 
 

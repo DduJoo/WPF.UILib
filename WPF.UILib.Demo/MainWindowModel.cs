@@ -86,6 +86,7 @@ namespace WPF.UILib.Demo
         private void PopUpOpen()
         {
             PopupView popupView = new PopupView();
+            popupView.Owner = _this;
             popupView.ShowDialog();
         }
 

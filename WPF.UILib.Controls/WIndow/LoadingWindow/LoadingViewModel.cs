@@ -19,11 +19,11 @@ namespace WPF.UILib.Controls.WIndow.LoadingWindow
 
             _this = base._this;
             _this.Hide();
-            _this.Height = _this.Owner.Height;
+            _this.Height = _this.Owner.Height - 36;
             _this.Width = _this.Owner.Width;
 
             _this.Left = _this.Owner.Left;
-            _this.Top = _this.Owner.Top;
+            _this.Top = _this.Owner.Top + 36;
             _this.Show();
 
         }
