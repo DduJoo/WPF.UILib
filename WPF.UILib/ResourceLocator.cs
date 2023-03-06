@@ -21,9 +21,7 @@ namespace WPF.UILib
             Uri[] knownColorSchemes = currentColorSchemeResourceUri != null ? new[] { currentColorSchemeResourceUri } : new[] { LightColorScheme, DarkColorScheme };
 
             ResourceDictionary currentTheme = FindFirstContainedResourceDictionaryByUri(rootResourceDictionary, knownColorSchemes);
-
-            // It is important to add the new resource dictionary before removing the old one.
-            // Removing it first would decrease performance significantly because warnings for missing resources are created.
+            
             rootResourceDictionary.MergedDictionaries.Add(new ResourceDictionary { Source = colorSchemeResourceUri });
 
             if (currentTheme != null)
@@ -56,10 +54,7 @@ namespace WPF.UILib
                     selectedScheme = LightColorScheme;
                     break;
             }
-
-
-            // It is important to add the new resource dictionary before removing the old one.
-            // Removing it first would decrease performance significantly because warnings for missing resources are created.
+            
             rootResourceDictionary.MergedDictionaries.Add(new ResourceDictionary { Source = selectedScheme });
 
             if (currentTheme != null)
