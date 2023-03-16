@@ -29,13 +29,14 @@
 
     <Style TargetType="{x:Type DataGridCell}">
         <Setter Property="Foreground" Value="{DynamicResource {x:Static Color:ColorsKey.DefalutControlForegroundBrush}}" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type DataGridCell}">
                     <Border
                         Height="30"
                         Margin="-1"
-                        Background="Transparent"
+                        Background="{TemplateBinding Background}"
                         BorderBrush="{DynamicResource {x:Static Color:ColorsKey.DefalutControlBorderBrush}}"
                         BorderThickness="1,0"
                         SnapsToDevicePixels="True">

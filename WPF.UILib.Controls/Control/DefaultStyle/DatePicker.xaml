@@ -77,7 +77,7 @@
                                     <VisualTransition GeneratedDuration="0:0:0.1" To="MouseOver" />
                                 </VisualStateGroup.Transitions>
                                 <VisualState x:Name="Normal" />
-                                <VisualState x:Name="MouseOver">
+                                <!--<VisualState x:Name="MouseOver">
                                     <Storyboard>
                                         <ColorAnimation
                                             Storyboard.TargetName="ContentElement"
@@ -90,7 +90,7 @@
                                             To="#FF99C1E2"
                                             Duration="0" />
                                     </Storyboard>
-                                </VisualState>
+                                </VisualState>-->
                             </VisualStateGroup>
                             <VisualStateGroup x:Name="WatermarkStates">
                                 <VisualStateGroup.Transitions>

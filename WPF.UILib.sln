@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF.UILib", "WPF.UILib\WPF.UILib.csproj", "{2D5387F6-21A4-420B-9BB8-D91B44C24434}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF.UILib", "WPF.UILib\WPF.UILib.csproj", "{2D5387F6-21A4-420B-9BB8-D91B44C24434}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF.UILib.Demo", "WPF.UILib.Demo\WPF.UILib.Demo.csproj", "{9D349517-A839-418C-8039-00184E936619}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF.UILib.Demo", "WPF.UILib.Demo\WPF.UILib.Demo.csproj", "{9D349517-A839-418C-8039-00184E936619}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF.UILib.Controls", "WPF.UILib.Controls\WPF.UILib.Controls.csproj", "{C8E370E9-3B9B-4B42-94FF-01FDFB4EE4F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF.UILib.Controls", "WPF.UILib.Controls\WPF.UILib.Controls.csproj", "{C8E370E9-3B9B-4B42-94FF-01FDFB4EE4F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
