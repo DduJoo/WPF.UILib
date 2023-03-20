@@ -54,23 +54,23 @@ namespace WPF.UILib.Controls.WIndow.AlertWindow
             switch (alertType)
             {
                 case AlertType.OK:
-                    TypeImage = "/Resources/ic_check.png";
+                    TypeImage = "/WPF.UILib.Controls;component/Resources/ic_check.png";
                     CancleButtonVisiblity = Visibility.Collapsed;
                     break;
                 case AlertType.QUESTION:
-                    TypeImage = "/Resources/ic_question.png";
+                    TypeImage = "/WPF.UILib.Controls;component/Resources/ic_question.png";
                     CancleButtonVisiblity = Visibility.Visible;
                     break;
                 case AlertType.WARNING:
-                    TypeImage = "/Resources/ic_warning.png";
+                    TypeImage = "/WPF.UILib.Controls;component/Resources/ic_warning.png";
                     CancleButtonVisiblity = Visibility.Collapsed;
                     break;
                 case AlertType.ERROR:
-                    TypeImage = "/Resources/ic_error.png";
+                    TypeImage = "/WPF.UILib.Controls;component/Resources/ic_error.png";
                     CancleButtonVisiblity = Visibility.Collapsed;
                     break;
                 case AlertType.INFORMATION:
-                    TypeImage = "/Resources/ic_information.png";
+                    TypeImage = "/WPF.UILib.Controls;component/Resources/ic_information.png";
                     CancleButtonVisiblity = Visibility.Collapsed;
                     break;
             }
