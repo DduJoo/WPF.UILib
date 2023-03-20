@@ -127,6 +127,21 @@
   <data name="calendar_White" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calendar_White.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="ic_check" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ic_check.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ic_error" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ic_error.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ic_information" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ic_information.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ic_question" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ic_question.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ic_warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ic_warning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="win_close_Black" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\win_close_Black.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

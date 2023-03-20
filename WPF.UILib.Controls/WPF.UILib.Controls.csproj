@@ -12,6 +12,11 @@
     <None Remove="Resources\calendar_Dark.png" />
     <None Remove="Resources\calendar_Disable.png" />
     <None Remove="Resources\calendar_White.png" />
+    <None Remove="Resources\ic_check.png" />
+    <None Remove="Resources\ic_error.png" />
+    <None Remove="Resources\ic_information.png" />
+    <None Remove="Resources\ic_question.png" />
+    <None Remove="Resources\ic_warning.png" />
     <None Remove="Resources\win_close_Black.png" />
     <None Remove="Resources\win_close_White.png" />
     <None Remove="Resources\win_max_Black.png" />
@@ -34,6 +39,11 @@
     <Resource Include="Resources\calendar_Dark.png" />
     <Resource Include="Resources\calendar_Disable.png" />
     <Resource Include="Resources\calendar_White.png" />
+    <Resource Include="Resources\ic_check.png" />
+    <Resource Include="Resources\ic_error.png" />
+    <Resource Include="Resources\ic_information.png" />
+    <Resource Include="Resources\ic_question.png" />
+    <Resource Include="Resources\ic_warning.png" />
     <Resource Include="Resources\win_close_Black.png" />
     <Resource Include="Resources\win_close_White.png" />
     <Resource Include="Resources\win_max_Black.png" />
