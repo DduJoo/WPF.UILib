@@ -23,10 +23,11 @@ namespace WPF.UILib.Controls.WIndow.LoadingWindow
         /// 전체 화면 로딩
         /// </summary>
         /// <param name="p_Owner">로딩창을 호출하는 부모창</param>
-        public LoadingView(Window p_Owner)
+        public LoadingView(Window p_Owner, string p_message)
         {
             InitializeComponent();
             this.Owner = p_Owner;
+            this.DataContext = new LoadingViewModel(p_message);
         }
     }
 }

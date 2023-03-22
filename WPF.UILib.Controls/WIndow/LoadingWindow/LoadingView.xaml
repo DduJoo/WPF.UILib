@@ -59,9 +59,8 @@
                 <TextBlock
                     Grid.Row="1"
                     Foreground="{DynamicResource {x:Static Color:ColorsKey.DefalutControlForegroundBrush}}"
-                    TextAlignment="Center">
-                    조회중입니다.<LineBreak />
-                    잠시만 기다려주세요.</TextBlock>
+                    Text="{Binding Message}"
+                    TextAlignment="Center" />
 
                 <Grid Grid.Row="2">
                     <ContentControl

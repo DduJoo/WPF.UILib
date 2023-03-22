@@ -12,6 +12,15 @@ namespace WPF.UILib.Controls.WIndow.LoadingWindow
     {
         private Window? _this = null;
 
+        private string message = string.Empty;
+        public string Message { get => message; set => SetProperty(ref message, value); }
+
+        public LoadingViewModel(){}
+        public LoadingViewModel(string p_message)
+        {
+            Message = p_message;
+        }
+
         public override void Loaded(object sender)
         {
             base.Loaded(sender);

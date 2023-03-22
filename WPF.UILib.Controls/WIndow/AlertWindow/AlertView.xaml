@@ -75,7 +75,7 @@
                     Command="{Binding NButtonClickCommand}"
                     CommandParameter="{Binding ElementName=Alert}"
                     Content="취소"
-                    Foreground="Black"
+                    Style="{DynamicResource Button.Emptiness}"
                     Visibility="{Binding CancleButtonVisiblity}" />
 
                 <Rectangle
