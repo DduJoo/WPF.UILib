@@ -66,7 +66,11 @@ namespace WPF.UILib.Controls.ViewModel
         /// </summary>
         private void DragMove()
         {
-            _this.DragMove();
+            try
+            {
+                _this.DragMove();
+            }
+            catch {}
         }
 
 
