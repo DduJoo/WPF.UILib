@@ -29,5 +29,11 @@ namespace WPF.UILib.Controls.WIndow.LoadingWindow
             this.Owner = p_Owner;
             this.DataContext = new LoadingViewModel(p_message);
         }
+
+        public void SetRealTimeMessage(string p_message) 
+        {
+            LoadingViewModel loadingViewModel = this.DataContext as LoadingViewModel;
+            loadingViewModel?.SetRealTimeMessage(p_message);
+        }
     }
 }

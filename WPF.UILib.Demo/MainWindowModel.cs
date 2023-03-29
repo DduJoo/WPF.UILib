@@ -104,7 +104,7 @@ namespace WPF.UILib.Demo
            
         private async Task ShowLoading()
         {
-            LoadingView loadingView = new LoadingView(base._this);
+            LoadingView loadingView = new LoadingView(base._this, "-----------");
             loadingView.Show();
 
             await Task.Delay(3000);

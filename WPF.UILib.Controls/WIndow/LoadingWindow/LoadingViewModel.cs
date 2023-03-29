@@ -10,10 +10,14 @@ namespace WPF.UILib.Controls.WIndow.LoadingWindow
 {
     public class LoadingViewModel : WindowBase
     {
+        
         private Window? _this = null;
 
         private string message = string.Empty;
         public string Message { get => message; set => SetProperty(ref message, value); }
+
+        private string realTimeMessage = string.Empty;
+        public string RealTimeMessage { get => realTimeMessage; set => SetProperty(ref realTimeMessage, value); }
 
         public LoadingViewModel(){}
         public LoadingViewModel(string p_message)
@@ -36,5 +40,11 @@ namespace WPF.UILib.Controls.WIndow.LoadingWindow
             _this.Show();
 
         }
+
+        public void SetRealTimeMessage(string p_message)
+        {
+            RealTimeMessage = p_message;
+        }
+
     }
 }
